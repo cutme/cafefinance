@@ -1,0 +1,47 @@
+:root {
+    --plyr-color-main: white !important;
+}
+
+.plyr {
+    cursor: pointer;
+
+    &__control {
+        &.plyr__control {
+            &--overlaid {                
+                @extend %flex;
+                @extend %flex-xy;
+                width: 50px; height: 50px;
+                background-color: transparent;
+                border: 2px solid white;
+                border-radius: 50%;
+                padding-left: 10px;
+                cursor: pointer;
+            
+                &:after {
+                    @extend %abs-pseudo;
+                    @extend %abs-xy; z-index: 20;
+                    margin-left: 3px;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 8.5px 0 8.5px 14.0px;
+                    border-color: transparent transparent transparent white;
+                }
+
+                svg {
+                    display: none;
+                }
+                
+                &:hover {
+                        background-color: transparent !important;
+                }
+            }
+        }
+    }
+    
+    &:not(.plyr--playing) {
+        .plyr__controls {
+            display: none;
+        }
+    }
+}

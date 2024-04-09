@@ -1,0 +1,51 @@
+[class^="icon-"], [class*=" icon-"] {
+  &:before {
+      font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+}
+.icon-arrow-down:before {
+  content: "\e90a";
+}
+.icon-automotive:before {
+  content: "\e907";
+}
+.icon-finances:before {
+  content: "\e908";
+}
+.icon-photography:before {
+  content: "\e909";
+}
+.icon-arrow-right:before {
+  content: "\e906";
+}
+.icon-quote:before {
+  content: "\e905";
+}
+.icon-facebook:before {
+  content: "\e903";
+}
+.icon-facebook-f:before {
+  content: "\e903";
+}
+.icon-twitter:before {
+  content: "\e904";
+}
+.icon-arrow-up:before {
+  content: "\e900";
+}
+.icon-lens:before {
+  content: "\e901";
+}
+.icon-comment:before {
+  content: "\e902";
+}

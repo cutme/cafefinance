@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl-PL" class="no-js">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
+    <% include head-meta %>
+    <% //include head-fav %>
+    
+<% if (process.env.NODE_ENV === 'production') { %> 
+    <% include head-gtm %> 
+<% } else { %>
+    <meta name="robots" content="noindex, nofollow">
+<% } %>
+    
+    <title>Cafe Finance</title>
+    <script>
+        document.documentElement.className = document.documentElement.className.replace("no-js","js");
+    </script>
+</head>

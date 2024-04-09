@@ -1,0 +1,24 @@
+.o-sticker {
+    display: inline-flex;
+    @extend %flex-xy;
+    @extend %abs;
+    left: 30px; top: 30px;
+    height: 40px;
+    min-width: 100px;
+    background-color: $c-green1;
+    border-radius: 20px;
+    font: {
+        family: $text;
+        size: rem(14);
+        weight: $bold;
+    }
+    color: white;
+    
+    @media screen and ( max-width: + $base + px ) {
+        left: 20px; top: 20px;
+    }
+    
+    .o-box--unavailable & {
+        background-color: $c-black2;
+    }
+}

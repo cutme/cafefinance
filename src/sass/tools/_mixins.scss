@@ -1,0 +1,362 @@
+@mixin antialias {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-face-db( $font-name, $font-filename, $font-weight: normal ){
+  @font-face {
+    src: url('#{$path_fonts}/' + $font-filename + '.eot');
+    src: url('#{$path_fonts}/' + $font-filename + '.eot?#iefix') format('embedded-opentype'),
+         url('#{$path_fonts}/' + $font-filename + '.woff') format('woff'),
+         url('#{$path_fonts}/' + $font-filename + '.ttf') format('truetype');
+    font: {
+        family: $font-name;
+        weight: $font-weight;
+        style: normal;
+        display: swap
+    }
+  }
+}
+
+@mixin full {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin: {
+        left: -50vw;
+        right: -50vw;
+    }
+    padding: {
+        left: toRem(48);
+        right: toRem(48);
+    }
+}
+
+@mixin icomoon {
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin input-placeholder($selector: "") {
+	@if $experimental-support-for-webkit {
+		#{$selector}::-webkit-input-placeholder { @content; }
+	}
+	@if $experimental-support-for-mozilla {
+		#{$selector}:-moz-placeholder { @content; }
+	}
+	@if $experimental-support-for-microsoft {
+		#{$selector}:-ms-input-placeholder { @content; }
+	}
+}
+
+@mixin maxLines($num) {
+    display: -webkit-box;
+    -webkit-line-clamp: #{$num};
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+$prefixes: ("-webkit-","-moz-", "-o-", "");
+@mixin selection($color, $background) {
+    @each $prefix in $prefixes {
+        ::#{$prefix}selection {
+            color: $color;
+            background: $background;
+        }
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        @content;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin responsive-border-width($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    border-width: calc(#{$min} + 0.01rem);
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      border-width: $max;
+    }
+  }
+
+  @if $fallback {
+    border-width: $fallback;
+  }
+
+    border-width: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: calc(#{$min} + 0.01rem);
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+//  font-size: $responsive;
+    font-size: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-padding($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    padding: calc(#{$min} + 0.01rem);
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      padding: $max;
+    }
+  }
+
+  @if $fallback {
+    padding: $fallback;
+  }
+
+//  font-size: $responsive;
+    padding: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-margin-bottom($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        margin-bottom: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            margin-bottom: $max;
+        }
+    }
+    
+    @if $fallback {
+        margin-bottom: $fallback;
+    }
+
+    margin-bottom: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-margin-top($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        margin-top: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            margin-top: $max;
+        }
+    }
+    
+    @if $fallback {
+        margin-top: $fallback;
+    }
+
+    margin-top: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-margin-left($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        margin-left: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            margin-left: $max;
+        }
+    }
+    
+    @if $fallback {
+        margin-left: $fallback;
+    }
+
+    margin-left: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-padding-left($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        padding-left: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            padding-left: $max;
+        }
+    }
+    
+    @if $fallback {
+        padding-left: $fallback;
+    }
+
+    padding-left: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-padding-right($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        padding-right: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            padding-right: $max;
+        }
+    }
+    
+    @if $fallback {
+        padding-right: $fallback;
+    }
+
+    padding-right: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-padding-top($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        padding-top: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            padding-top: $max;
+        }
+    }
+    
+    @if $fallback {
+        padding-top: $fallback;
+    }
+
+    padding-top: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-padding-bottom($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        padding-bottom: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            padding-bottom: $max;
+        }
+    }
+    
+    @if $fallback {
+        padding-bottom: $fallback;
+    }
+
+    padding-bottom: calc(#{$responsive} + 0.1rem);
+}
+
+@mixin responsive-width($responsive, $min, $max: false, $fallback: false) {
+    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+    $min-breakpoint: $min / $responsive-unitless * 100;
+    
+    @media (max-#{$dimension}: #{$min-breakpoint}) {
+        width: calc(#{$min} + 0.01rem);
+    }
+    
+    @if $max {
+        $max-breakpoint: $max / $responsive-unitless * 100;
+    
+        @media (min-#{$dimension}: #{$max-breakpoint}) {
+            width: $max;
+        }
+    }
+    
+    @if $fallback {
+        width: $fallback;
+    }
+
+    width: calc(#{$responsive} + 0.1rem);
+}

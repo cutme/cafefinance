@@ -1,0 +1,116 @@
+.customSelect {
+    @extend %rel;
+    -webkit-tap-highlight-color: transparent;
+    @extend %flex;
+    @extend %flex-y;
+    width: 100%;
+    height: 45px;
+    background-color: white;    
+    cursor: pointer;    
+    line-height: 50px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+
+    &:after {
+        @extend %abs;
+        top: -4px;
+        right: 15px;
+        display: block;
+        pointer-events: none;
+        transition: all 0.15s ease-in-out;
+        font: {
+            family: $icomoon;
+            size: rem(6);
+        }
+        color: var(--primary-color);
+        content: "\e900";
+    }
+    
+    &.is-open {
+        &:after {
+            transform: scaleY(-1);
+        }
+        
+        .custom-select-panel {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .custom-select-opener {
+        display: block;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 30px;
+        letter-spacing: .8px;
+        font-size: rem(16);
+
+        @media screen and ( max-width: + $smartphone_portrait + px ) {
+            font-size: rem(12);
+        }
+    }
+    
+    .custom-select-panel {
+        @extend %abs;
+        z-index: 9;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 0 0 1px gray;
+        margin-top: 4px;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform-origin: 50% 0;
+        transform: scale(0.75) translateY(-21px);
+        transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+        
+        &:hover .custom-select-option:not(:hover) {
+            background-color: transparent !important;
+        }
+    }
+    
+    .custom-select-option {
+        cursor: pointer;
+        line-height: 40px;
+        list-style: none;
+        min-height: 40px;
+        outline: none;
+        padding: 0 20px;
+        text-align: left;
+        -webkit-transition: all 0.2s;
+        letter-spacing: .8px;
+        
+        &:hover, 
+        &.has-focus, 
+        &.is-selected.has-focus {
+            background-color: #f6f6f6;
+        }
+        
+       /*
+ &.is-selected {
+            font-weight: $semibold;
+        }
+*/
+        
+        &.disabled {
+            background-color: transparent;
+            color: #999;
+            cursor: default;
+        }
+    }
+}
+
+.no-csspointerevents .customSelect .custom-select-panel {
+display: none; }
+
+.no-csspointerevents .customSelect.is-open .custom-select-panel {
+display: block; }
+
+select {
+    display: none;
+}

@@ -1,0 +1,51 @@
+// Fonts
+
+$bona:              'Bona Nova', serif;
+$inter:             'Inter Tight', sans-serif;
+$icomoon:           'icomoon';
+$text:		        $inter;
+
+
+
+
+// Font weights
+
+$extralight:        200;
+$light:             300;
+$regular:           400;
+$medium:            500;
+$semibold:          600;
+$bold:              700;
+$extrabold:         800;
+
+
+$z-index: (
+    hamburger:       50,
+	nav:             50,
+	topbar:          40,
+	logo:            60
+);
+
+// Paths
+
+$path_img:          '../img';
+$path_fonts:        '../fonts';
+
+
+
+// Default
+
+$base-font-size:	16;
+$base:				1440;
+
+
+
+// RWD
+
+$menu:                 1024;
+$padding:                48;
+$desktop:              1920;
+$tablet:               1024;
+$tablet_portrait:       768;
+$smartphone:			640;
+$smartphone_portrait:	500;

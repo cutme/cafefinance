@@ -1,0 +1,18 @@
+.c-hero {
+    height: 100vh;
+    background-color: $c-gray-01;
+    
+    .o-wrap {
+        @extend %flex;
+        @extend %flex-y;
+        height: 100%;
+        text-align: center;
+
+        h1 {
+            @extend %fs-80;
+            max-width: toRem(800);
+            margin: 0 auto;
+            font-weight: $semibold;
+        }
+    }
+}

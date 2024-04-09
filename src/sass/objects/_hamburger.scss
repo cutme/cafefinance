@@ -1,0 +1,56 @@
+.o-hamburger {
+    @include z-index(hamburger);
+    @extend %anim;
+    @extend %flex;
+    @extend %flex-xy;
+    @extend %rel;
+    width: 19px; height: 16px;
+    border-top: 3px solid var(--primary-color);
+	cursor: pointer;
+	
+	@media screen and ( min-width: $tablet + 1px ) {
+        display: none;
+    }
+
+    &:after, &:before {
+        @extend %abs;
+        @extend %abs-pseudo;
+        @extend %anim;
+        width: 100%; 
+        height: 3px;
+        background-color: var(--primary-color);
+    }
+ 
+    &:after {
+	    left: 0;
+	    transform-origin: right;
+        top: 100%;
+        width: 12px;
+    }
+
+    &:before {
+        transform-origin: left;
+        top: calc(50% - 2px);
+    }
+
+    &:hover {
+        //.desktop & {
+            border-color: var(--primary-color);
+        //}
+    }
+
+    &.is-active {
+        border-color: transparent !important;
+
+        &:after {
+	        width: 130%;
+            transform: rotate(45deg) translate(-5px, 5px);
+        }
+        
+        &:before {
+	        width: 130%;
+            transform: rotate(-45deg) translate(-4px, 8px);            
+        }
+    }
+}
+

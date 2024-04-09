@@ -1,0 +1,12 @@
+img:not([src]):not([srcset]) {
+    visibility: hidden;
+}
+
+img.lazy {
+    transition: opacity 250ms ease-out;
+    opacity: 0;
+    
+    &.loaded {
+        opacity: 1;
+    }
+}
