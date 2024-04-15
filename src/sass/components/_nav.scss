@@ -12,22 +12,27 @@
         }
         
         a {
-            @extend %flex;
             @extend %flex-y;
+            display: inline-flex;
             height: 54px;
             border-radius: 27px;
-            border: 2px solid $c-black-01;
+            border: 2px solid $c-black;
             border-color: transparent;
-            padding: 0 24px;
+            padding: 0 clamp(16px, toRem(24), toRem(24));
             white-space: nowrap;
-            font: {
-                size: rem(18);
-                weight: 600;
+            font-size: 18px;
+            
+            &:after {
+                @extend %abs-pseudo;
+                left: clamp(16px, toRem(24), toRem(24)); bottom: 10px;
+                width: calc(100% - 2* (clamp(16px, toRem(24), toRem(24)))); height: 2px;
+                background-color: $c-black;
+                opacity: 0;
             }
 
             @media (hover: hover) { 
                 &:hover {
-                    border-color: $c-black-01;
+                    border-color: $c-black;
                 }
             }
         }
@@ -37,26 +42,60 @@
             
             li {
                 padding: 0 toRem(20);
+                
+                a {
+                    @extend %rel;
+                    
+                    
+                }
 
                 &.font-bona {
-                    a {
+                    a { 
                         font: {
                             family: $bona;
-                            size: rem(24);
+                            size: 24px;
                         }
                     }
                     
                     &.smartfi {
                         a {
-                            border-color: $c-black-01;
+                            border-color: $c-black;
+                            
+                            &:before {
+                                @extend %abs-pseudo; z-index: -1;
+                                @extend %anim;
+                                left: -2px; top: -2px;
+                                width: calc(100% + 4px); height: calc(100% + 4px);
+                                background: linear-gradient(180deg, $c-green 0%, $c-blue 100%);
+                                border-radius: 27px;
+                                opacity: 0;
+                            }
 
                             span {
                                 font: {
                                     family: $inter;
-                                    size: rem(22);
+                                    size: 22px;
                                     weight: $regular;
                                 }
                             }
+                            
+                            &:hover {
+                                @media ( hover: hover ) {
+                                    color: white;
+
+                                	&:before {
+                                    	opacity: 1;
+                                	}
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                &.current-menu-item {
+                    a {
+                        &:after {
+                            opacity: 1;
                         }
                     }
                 }
@@ -71,7 +110,7 @@
         height: 100%;
         left: 0;
         top: 0;
-        background-color: $c-gray-01;
+        background-color: $c-gray;
         text-align: center;
         transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         transform: translate3d(100%, 0, 0);
@@ -79,43 +118,24 @@
         & > .c-nav {
             &__menu {
                 display: block;
-                margin-top: 100px;
-                height: calc(100% - 100px);
+                margin-top: clamp(64px, toRem(98), toRem(98));
+                height: calc(100% - clamp(64px, toRem(98), toRem(98)));
                 padding-bottom: 60px;
                 overflow: scroll;
                 -webkit-overflow-scrolling: touch;
-                
-                .page-it & {
-                    display: flex;
-                    flex-direction: column;
-                }
-                	
+
                 & > ul {
                     width: 100%;
                     display: block;
                     height: auto;
-                    margin-bottom: 40px;
+                    margin-bottom: 32px;
                     
-                    li {
-                        height: auto;
-                        
-                        a {
-                            position: relative;
-                            margin: 0 auto;
-                            padding: 0 20px;
-                            color: white;
-                            line-height: 66px;
-                            justify-content: center;
-                            font-size: rem(18);
-                            
-                            @media ( max-width: $tablet_portrait + px ) {
-                            	line-height: 44px;
-                            }
-                        }
-                        
-                        &.is-active {
+                    li {                        
+                        margin-bottom: 0;
+
+                        &.smartfi {
                             a {
-                                color: white;
+                                margin: 24px 0;
                             }
                         }
                     }
@@ -123,16 +143,12 @@
             }
         }
         
-        &.is-animated {
-            //transform: translate3d(-100%, 0, 0);
-            
+        &.is-animated {            
             .c-navtop__menu {        
                 ul {
                     li {
                         &.is-active {                            
                             a {
-                                color: white;
-                                
                                 &:before {
                                     opacity: 1;
                                 }
@@ -157,8 +173,4 @@
 
 .o-lang {
     text-transform: uppercase;
-    
-    a {
-        
-    }
 }

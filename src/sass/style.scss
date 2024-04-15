@@ -19,18 +19,38 @@
 @import 'elements/page';
 @import 'elements/typography';
 
+@import 'objects/area';
 @import 'objects/article';
+@import 'objects/bararea';
 @import 'objects/btn';
 @import 'objects/cols';
 @import 'objects/hamburger';
-@import 'objects/header';
 @import 'objects/icons';
 @import 'objects/logo';
-@import 'objects/section';
+@import 'objects/more';
+@import 'objects/owners';
+@import 'objects/scrolldown';
+@import 'objects/smallbar';
 @import 'objects/wrap';
 
+@import 'components/actions';
+@import 'components/addresses';
+@import 'components/benefits';
+@import 'components/cooperatewithus';
+@import 'components/cooperation';
+@import 'components/cv';
+@import 'components/footer';
 @import 'components/hero';
+@import 'components/intro';
 @import 'components/nav';
+@import 'components/packages';
+@import 'components/partners';
+@import 'components/photo';
+@import 'components/services';
+@import 'components/sfi';
+@import 'components/textblock';
 @import 'components/topbar';
+@import 'components/wantmore';
+@import 'components/whywe';
 
 @import 'trumps/trumps';

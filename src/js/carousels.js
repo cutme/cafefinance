@@ -1,46 +1,34 @@
-import Swiper, { Grid, FreeMode, Lazy, Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 import 'swiper/swiper.scss';
-import 'swiper/modules/lazy/lazy.scss';
-import 'swiper/modules/mousewheel/mousewheel.scss';
 
-document.addEventListener('DOMContentLoaded',function() {
+document.addEventListener('DOMContentLoaded', () => {
     
-    const products = document.getElementsByClassName('js-products')[0],
-          reviews = document.getElementsByClassName('js-reviews')[0];
+    const partners = document.querySelector('.js-partners');
 
-    const productsCarousel = function() {
-        const swiper = new Swiper(products, {
-            modules: [FreeMode, Lazy, Navigation, Pagination],
-            centeredSlides: true,
-            freeMode: true,
-            lazy: true,
-            loop: true,
+    const partnersCarousel = function() {
+        const swiper = new Swiper(partners, {
+            modules: [Navigation],
+            breakpoints: {
+                641: {
+                    slidesPerView: 2,
+                },
+                769: {
+                    slidesPerView: 3,
+                }
+            },
+            centeredSlidesBounds: true,
             navigation: {
-                nextEl: products.querySelector('.swiper-button-next'),
-                prevEl: products.querySelector('.swiper-button-prev'),
+                nextEl: '.c-partners__carousel .swiper-button-next',
+                prevEl: '.c-partners__carousel .swiper-button-prev',
             },
-            preloadImages: false,
             spaceBetween: 20,
-            slidesPerView: 'auto',
-            speed: 400,
-            pagination: {
-                el: products.querySelector('.swiper-pagination'),
-                    clickable: true,
-                    dynamicBullets: true
-            },
-            watchSlidesProgress: true
-        });
-    }
-    
-    const reviewsCarousel = function() {
-        const swiper = new Swiper(reviews, {
-    	    slidesPerView: 2,
+            slidesPerView: 1,
+            speed: 600,
         });
     }
 
     window.carousels = function() {
-        products ? productsCarousel() : false;
-       // reviews ? productsCarousel() : false;
+        partners ? partnersCarousel() : false;
     }
 
 }, false)

@@ -1,0 +1,22 @@
+.c-benefits {
+    @extend %rel; z-index: 10;
+    @extend %section;
+    background-color: $c-gray;
+    padding-bottom: 0;
+    padding-top: 0;
+  
+    .o-article {
+        @media ( min-width: $smartphone + 1px ) {
+            width: toRem(1233);
+            padding-left: toRem(458);        	
+        }
+
+        h2 {
+            margin-bottom: 64px;
+        }
+    }
+    
+    .o-wrap {
+        padding-bottom: 0;
+    }
+}

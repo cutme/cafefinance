@@ -1,0 +1,95 @@
+.c-partners {
+    @extend %rel;
+    
+    h3 {
+        margin-bottom: 48px;
+        text-align: center;
+        font-size: 32px;
+    }
+    
+    &__carousel {
+        @extend %rel;
+        max-width: 1115px;
+        border: 2px solid $c-gray;
+        border-radius: 73px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    
+    .swiper {
+        width: calc(100% - clamp(100px, toRem(200), toRem(200)));
+        height: 146px;
+        margin: 0 auto;
+
+        .swiper-slide {
+            @extend %flex;
+            @extend %flex-xy;
+            @extend %anim;
+            user-select: none;
+
+            &:not(.swiper-slide-prev) {
+                &:not(.swiper-slide-next) {
+                    &:not(.swiper-slide-active) {
+                        @media ( min-width: 769px ) {
+                           // opacity: 0;
+                        }
+                    }
+                }
+            }
+            
+            &:not(.swiper-slide-active) {
+                @media ( max-width: $smartphone + px ) {
+                	opacity: 0;
+                }
+            }
+            
+            &:not(.swiper-slide-next) {
+                &:not(.swiper-slide-active) {
+                    @media ( min-width: 581px ) and ( max-width: 768px ) {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        @extend %abs;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        user-select: none;
+        font: {
+            size: 24px;
+            weight: $regular;
+        }
+        cursor: pointer;
+        
+        &.swiper-button-disabled {
+            opacity: .5;
+        }
+    }
+    
+    .swiper-button-prev {
+        left: clamp(25px, toRem(50), toRem(50));
+        transform: translate3d(0, -50%, 0) scaleX(-1);
+    }
+    
+    .swiper-button-next {
+        right: clamp(25px, toRem(50), toRem(50));;
+    }
+    
+    .o-smallbar {
+        top: 0; right: toRem(48);
+        background: linear-gradient(to right,  $c-yellow 1%, $c-orange 100%);
+        transform: translate3d(0, -50%, 0);
+    }
+    
+    .o-wrap {
+        @extend %rel;
+        padding: {
+            top: 150px;
+            bottom: 150px;
+        }
+    }
+}

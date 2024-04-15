@@ -1,0 +1,28 @@
+.c-sfi {
+    @extend %rel;
+    @extend %section;
+    background-color: $c-gray;
+
+    &__content {        
+        @media ( min-width: $smartphone + 1px ) {
+            display: flex;
+            max-width: 1115px;
+            margin: 0 auto;
+        }
+        
+        figcaption {
+            @media ( min-width: $smartphone + 1px ) {
+                padding-left: toRem(130);            	
+            }
+        }
+
+        img {
+            width: clamp(150px, toRem(200), toRem(200));
+            align-self: baseline;
+            
+            @media ( max-width: $smartphone + px ) {
+            	margin-bottom: 48px;
+            }
+        }
+    }
+}

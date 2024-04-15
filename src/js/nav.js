@@ -1,113 +1,74 @@
+import { gsap, Power1 } from "gsap";
 const bodyScrollLock = require('body-scroll-lock');
 const disableBodyScroll = bodyScrollLock.disableBodyScroll;
 const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
-document.addEventListener('DOMContentLoaded',function() {
+document.addEventListener('DOMContentLoaded', () => {
 
-    const el = document.getElementsByClassName('js-nav')[0],
-          nav = document.getElementsByClassName('js-children'),
-          menu = document.getElementsByClassName('js-menu')[0],
+    const nav = document.getElementsByClassName('js-nav')[0],
           hamburger = document.getElementsByClassName('js-hamburger')[0],
-          parent = el.getElementsByTagName('li');
+          menu = document.getElementsByClassName('js-menu')[0];
 
     const init = function() {
 
-        let ww = 0;
-        
-/*
-        const searchform = document.getElementById('searchform'),
-        	  searchform__content = document.getElementById('searchform__content');
-*/
-
-        const checkWindowWidth = function() {
-            ww = window.innerWidth;
-
-            if (ww > 1024) {
-
-                hideMenu();
-            }
-        }
-        
-        const hideMenu = function() {
-
-            enableBodyScroll(el);
-            el.classList.remove('is-visible');
-            hamburger.classList.remove('is-active');
-
-            for (let i = 0; i < nav.length; i ++) {
-                nav[i].classList.remove('is-active');
-            }
+        window.hideMenu = function() {
+            document.querySelector('.js-nav').classList.remove('is-visible');
+            document.querySelector('.js-hamburger').classList.remove('is-active');
             
-            //cutme.Helpers.detach(searchform__content, searchform);
-            //searchform__content.classList.remove('is-visible');
+            document.removeEventListener('click', clickOutside);
+            document.documentElement.classList.remove('menu-opened');
             
-            let parent = el.getElementsByClassName('menu-item-has-children');
+            setTimeout(function() {
+                document.querySelector('.js-nav').classList.remove('is-block');
+                document.querySelector('.js-nav').classList.remove('is-animated');
+            }, 400);
             
-            for (let i = 0; i < parent.length; i ++) {
-                parent[i].classList.remove('is-active');
-            }
+            enableBodyScroll(document.getElementsByClassName('js-menu')[0]);
         };
 
-        const showMenu = function(e) {
-        
-            if (e.currentTarget.classList.contains('is-active')) {
+        const showMenu = () => {
+            nav.classList.add('is-block');
+            hamburger.classList.add('is-active', 'is-disabled');
+            document.documentElement.classList.add('menu-opened');
+
+            setTimeout(function() {
+                nav.classList.add('is-visible');
+                document.addEventListener('click', clickOutside);
+                showLinks();
+            }, 10);
             
-                hideMenu();            
-            
-            } else {
-            
-                disableBodyScroll(el);
-                el.classList.add('is-visible');
-                hamburger.classList.add('is-active');
-                
-                //cutme.Helpers.detach(searchform__content, el);
-                
-               /*
- setTimeout(function() {
-	                searchform__content.classList.add('is-visible');
-                }, 100);
-*/
-            }
-        };
+            const showLinks = function() {
+                const blocks = menu.querySelectorAll("li");
+                const tl = gsap.timeline().delay(.1).eventCallback("onComplete", () => {
+                          nav.classList.add('is-animated');
+                          hamburger.classList.remove('is-disabled');
+                      })
 
-        
-
-        window.addEventListener('resize', checkWindowWidth);
-
-        checkWindowWidth();
-
-        hamburger.addEventListener('click', showMenu);
-
-
-        const parent = menu.getElementsByTagName('li');
-
-        const submenu = function(e) {
-        
-            if (ww <= 1024) {
-                let item = e.currentTarget;
-               
-                e.stopPropagation();
-                
-                if (item.classList.contains('menu-item-has-children')) {
-                    if (item.classList.contains('is-active')) {
-                        item.classList.remove('is-active');
-                    } else {
-                        item.classList.add('is-active');
+                .from(blocks, {
+                    x: 50,
+                    opacity: 0,
+                    stagger: {
+                        each: 0.1
                     }
-                } else {
-                    let url = item.getElementsByTagName('a')[0].getAttribute('href');
-                    window.open(url, '_self');
-                    hideMenu();
-                }
+                });                
+            };
 
-                e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
-            }
-        }
+            disableBodyScroll(menu);
+        };
 
+        const toggleMenu = function(e) {
+            nav.classList.contains('is-visible') ? hideMenu() : showMenu();
+        };
 
-        for (let j = 0; j < parent.length; j++) {
-            parent[j].addEventListener('click', submenu);
-        }
+        
+        hamburger.addEventListener('click', toggleMenu);
+        
+        const clickOutside = function(e) {
+            if (!e.target.closest('.js-nav')) {
+                hideMenu();
+        	}
+        };
+        
 
 
         // Hide menu on ESC
@@ -124,9 +85,18 @@ document.addEventListener('DOMContentLoaded',function() {
                 hideMenu();
             }
         });
-
+        
+        
+        const checkWindowSize = function() {
+            if (window.innerWidth > 1200) {
+                hideMenu();
+                window.removeEventListener('resize', checkWindowSize);
+            }
+        };
+        
+        window.addEventListener('resize', checkWindowSize);
     };
 
-    el ? init() : false;
+    nav ? init() : false;
 
 }, false);

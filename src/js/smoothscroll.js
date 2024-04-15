@@ -1,7 +1,7 @@
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
 
-document.addEventListener('DOMContentLoaded',function() {
+document.addEventListener('DOMContentLoaded', ()=> {
     
     window.runScroll = function(el, o) {
         
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded',function() {
     };
 
     const gtt = document.querySelectorAll("[data-target]");
-    const privacyindex = document.getElementsByClassName('js-privacyindex')[0];
 
     if (gtt.length > 0) {
         const action = function(e) {
@@ -29,14 +28,6 @@ document.addEventListener('DOMContentLoaded',function() {
           
             document.getElementById(target.slice(1, target.length)) ? window.runScroll(target, offset) :
                 window.open(url + target, '_self');
-
-            if (privacyindex) {
-                let i =0,
-                    active = privacyindex.getElementsByClassName('is-active')[0];
-
-                active ? active.classList.remove('is-active') : false;
-                e.currentTarget.classList.add('is-active');    
-            }
         };
 
         for (let i = 0; i < gtt.length; i++) {

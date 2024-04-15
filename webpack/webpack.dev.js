@@ -16,7 +16,12 @@ const minify = {
 }
 
 const templateFileMapper = [
+    { template: "./src/aoc.ejs", file: "aoc.html" },
     { template: "./src/index.ejs", file: "index.html" },
+    { template: "./src/mis.ejs", file: "mis.html" },
+    { template: "./src/o-nas.ejs", file: "o-nas.html" },
+    { template: "./src/ofo.ejs", file: "ofo.html" },
+    { template: "./src/kontakt.ejs", file: "kontakt.html" },
 ]
 
 const htmlPlugins = () => {

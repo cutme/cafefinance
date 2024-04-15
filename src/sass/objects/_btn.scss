@@ -1,7 +1,7 @@
 .o-btn {
     @extend %btn;
-    
-    &--yellow {
-        
+
+    &--arrow {
+        @extend %btn--arrow;
     }
 }

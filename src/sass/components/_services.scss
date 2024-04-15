@@ -1,0 +1,42 @@
+.c-services {
+    @extend %rel;
+    //@extend %section;
+    background-color: $c-gray;
+    padding: {
+        top: 150px;
+        bottom: 150px;
+    }
+
+    .o-article {
+        max-width: 840px;
+        margin: 0 auto toRem(90) auto;
+        text-align: center;
+    }
+    
+    .o-owners {
+        @extend %flex;
+        @extend %flex-x;
+        
+        @media ( max-width: $smartphone + px ) {
+        	flex-direction: column;
+        	align-items: center;
+        }
+        
+        figure {
+            @media ( min-width: $smartphone + 1px ) {
+                margin: 0 toRem(60);
+            }
+            
+            &:nth-of-type(1) {
+                @media ( max-width: $smartphone + 1px ) {
+                    margin-bottom: 48px;
+                }
+            }
+            
+            img {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+

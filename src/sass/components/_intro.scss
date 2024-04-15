@@ -1,0 +1,23 @@
+.c-intro {
+    @extend %flex;
+    @extend %flex-column;
+    @extend %flex-x;
+    padding: {
+        bottom: toRem($padding);
+    }
+    
+    article {
+        @media ( min-width: $tablet_portrait + 1px ) {
+            max-width: toRem(1000);	
+        }
+    }
+    
+    img {
+        margin-bottom: toRem(148);
+    }
+    
+    .o-wrap {
+        padding-top: clamp(64px, toRem(98), toRem(98));
+        
+    }
+}

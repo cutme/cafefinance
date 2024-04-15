@@ -1,0 +1,39 @@
+.o-area {
+    
+    
+    .o-article {
+        @media ( min-width: $tablet_portrait + 1px ) {
+        	padding-left: toRem(458);
+        }
+
+        h2 {
+            margin-bottom: 64px;
+            
+            .page-about & {
+                width: toRem(670);
+            }
+        }
+        
+        ul {
+            li {
+                &:before {
+                    .page-ofo & {
+                        top: 20px;
+                    }
+                }
+
+                h5 {
+                    margin-bottom: 6px;
+                }
+                
+                p {
+                    @extend %fs-18;
+                }
+            }
+        }
+    }
+    
+    .o-wrap {
+        @extend %section;
+    }
+}

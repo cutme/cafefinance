@@ -1,15 +1,17 @@
 <% include ./src/includes/head %>
-<body>
+<% const page_name = 'page-home' %>
+<body class="page-home">
 <% include ./src/includes/head-gtm--noscript %>
 
     <% include ./src/includes/cover %>
     <% include ./src/includes/topbar %>
     <% include ./src/includes/hero %>
-    
-    <div class="c-photo">
-        
-    </div>
-    
+    <% include ./src/includes/intro %>
+    <% include ./src/includes/photo--home %>
+    <% include ./src/includes/services %>
+    <% include ./src/includes/partners %>
+    <% include ./src/includes/sfi %>
+    <% include ./src/includes/footer %>
 
 </body>
 </html>

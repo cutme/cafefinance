@@ -1,0 +1,37 @@
+.c-cv {
+    @extend %rel; z-index: 10;
+    background-color: $c-gray;
+
+    &__item {
+        @extend %flex;
+        
+        img {
+            @extend %fit;
+            width: 50%;
+        }
+
+        figcaption {
+            @extend %flex;
+            @extend %flex-x;
+            @extend %flex-column;
+            width: 50%;
+            padding: toRem(50) toRem(80) toRem(50) toRem(50);
+            
+            h5 {
+                margin: 0;
+            }
+
+            p {
+                @extend %fs-18;
+            }
+        }
+        
+        &:nth-of-type(1) {
+            @extend %theme--black;
+        }
+        
+        &:nth-of-type(2) {
+            flex-direction: row-reverse;
+        }
+    }
+}

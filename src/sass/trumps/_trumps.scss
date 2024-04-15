@@ -6,3 +6,43 @@
         opacity: 0;
     }
 }
+
+.color {
+    &--blue {
+        color: $c-blue;
+    }
+    
+    &--green {
+        color: $c-green;
+    }
+}
+
+.theme {
+    &--black {
+        @extend %theme--black;
+    }
+    
+    &--blue {
+        @extend %theme--blue;
+    }
+    
+    &--yellow {
+        @extend %theme--yellow;
+    }
+}
+
+
+[data-target] {
+    cursor: pointer;
+}
+
+.fade {
+    & > * {
+        visibility: hidden;
+    }
+}
+.panel {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}

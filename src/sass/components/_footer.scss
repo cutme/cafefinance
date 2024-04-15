@@ -1,0 +1,103 @@
+.c-footer {   
+    @extend %rel; z-index: 11;
+    background-color: $c-gray;
+
+    a {
+        @media ( hover: hover ) {
+        	&:hover {
+            	&:not([class^="icon-"]) {
+                	text-decoration: underline;
+                }
+        	}
+        }
+    }
+
+    &__copyrights {
+        font: {
+            size: 14px;
+            weight: $regular;
+        }
+        
+        @media ( max-width: $smartphone + px ) {
+            position: absolute;
+            bottom: 0;
+            transform: translate3d(0, 100%, 0);
+        }
+    }
+    
+    &__nav {
+        ul {
+            @extend %flex;
+            @extend %flex-wrap;
+
+            li {
+                width: 50%;
+                margin-bottom: 24px;
+                
+                a {
+                    font-size: 18px;
+                    white-space: nowrap;
+                }
+            }            
+        }
+    }
+    
+    &__social {
+        li {
+            margin-bottom: 24px;
+            font-size: 18px;
+        }
+        
+        @media ( max-width: $smartphone + px ) {
+        	margin: 0 0 0 auto;
+        }
+    }
+    
+    .o-cols {
+        @extend %rel;
+        border-top: 2px solid $c-black;
+        padding: {
+            top: 48px;
+            bottom: 48px;
+            right: toRem(120);
+        }
+        
+        @media ( max-width: $smartphone + px ) {
+        	flex-direction: column;
+        }
+
+        &__item {
+            @extend %flex;
+            
+            &:nth-of-type(1) {
+                @extend %flex-column;
+                
+                @media ( max-width: $smartphone + px ) {
+                	margin-bottom: 48px;
+                }
+
+                .c-footer__copyrights {
+                    margin: auto 0 24px 0;
+                }
+            }
+            
+            &:nth-of-type(2) {
+                @media ( min-width: $smartphone + 1px ) {
+                    margin: 0 0 0 auto;
+                }
+            }
+        }
+    }
+    
+    .o-wrap {
+        @extend %flex;
+        
+        @media ( max-width: $smartphone + px ) {
+            padding-bottom: 36px;
+        }
+    }
+    
+    [class^="icon-"] {
+        font-size: 24px;
+    }
+}

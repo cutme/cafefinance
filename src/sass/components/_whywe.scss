@@ -1,0 +1,22 @@
+.c-whywe {
+    @extend %rel; z-index: 11;
+
+    .o-wrap {
+        @extend %rel;
+    }
+
+    .page-aoc & {
+        @extend %theme--blue;
+    }
+    
+    .page-mis &,
+    .page-ofo & {
+        @extend %theme--black;
+    }
+    
+    .o-smallbar {
+        bottom: 0; right: toRem(48);
+        background: linear-gradient(to right,  $c-yellow 1%, $c-orange 100%);
+        transform: translate3d(0, 50%, 0);
+    }
+}

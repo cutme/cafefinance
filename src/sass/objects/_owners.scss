@@ -1,0 +1,33 @@
+.o-owners {
+    figure {
+        img {
+            border-radius: 50%;
+        }
+        
+        figcaption {
+            p {
+                font: {
+                    size: 18px;
+                    weight: $semibold;
+                }
+
+                &.department {
+                    @extend %fs-32;
+                    margin-bottom: 24px;
+                }
+                
+                &.name {
+                    font-size: 24px;
+                }
+                
+                &.position {
+                    margin-bottom: 24px;
+                    font: {
+                        style: italic;
+                        weight: $regular;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.add('is-loaded');
         
         setTimeout(() => {
-            //window.carousels();
+            window.carousels();
+            window.animsInit();
             cover.remove();
         }, 250);  
     };

@@ -1,0 +1,65 @@
+.o-smallbar {
+    @extend %abs;
+    border-radius: 50px;
+    
+    i {
+        @extend %abs;
+        //top: auto;
+        //left: 0; bottom: 0;
+        display: block;
+        width: 100px; height: 100px;
+        border-radius: 50%;
+    }
+    
+    &--horizontal {
+        right: toRem(48); //bottom: rem(-150);
+        width: clamp(100px, toRem(265), toRem(265)); height: 100px;
+        
+        .page-aoc & {
+            background: linear-gradient(to right,  $c-yellow 1%, $c-orange 100%);
+        }
+        
+        .page-about &,
+        .page-ofo & {
+            background: linear-gradient(to right,  #2864dc 1%,#00b27d 100%); 
+        }
+    }
+
+    &--vertical {
+        left: toRem(48); bottom: 0;
+        transform: translate3d(0, 100px, 0);
+        width: 100px; height: 350px;
+        
+        .page-aoc & {
+            background: linear-gradient(to bottom,  #ffb800 0%, #ff7b31 100%);
+        }
+        
+        .page-mis & {
+            background: linear-gradient(to bottom,  #ff7b31 0%,#ffb800 100%);
+        }
+        
+        .page-about &,
+        .page-ofo & {
+            background: linear-gradient(to bottom,  #00b27d 0%,#2864dc 100%);
+        }
+    }
+    
+    .page-aoc & {
+        i {
+            background-color: $c-yellow;
+        }
+    }
+    
+    .page-mis & {
+        i {
+            background-color: $c-orange;
+        }
+    }
+    
+    .page-about &,
+    .page-ofo & {
+        i {
+            background-color: $c-green;
+        }
+    }
+}

@@ -1,0 +1,108 @@
+.o-bararea {
+    @extend %rel;
+    
+    @media ( min-width: $tablet_portrait + 1px ) {
+        width: toRem(665);
+    }
+    
+    @media ( max-width: $tablet_portrait + px ) {
+    	padding-left: 140px;
+    }
+    
+    &__bar {
+        @extend %abs;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        
+        border-radius: 50px;
+        
+        @media ( min-width: $tablet_portrait + 1px ) {
+        	left: toRem(-120);
+        	transform: translate3d(-100%, 0, 0);
+        }
+
+        .o-ball {
+            @extend %abs;
+            left: 0; //top: 0;
+            display: block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            
+            .page-aoc & {
+                background-color: $c-yellow;
+            }
+            
+            .page-mis & {
+                background-color: $c-orange;
+            }
+
+            .page-about &,
+            .page-ofo & {
+                background-color: $c-green;
+            }
+        }
+        
+        .page-about & {
+            background: linear-gradient(to bottom, #00b27d 0%,#2864dc 100%);
+        }
+
+        .page-aoc & {
+            background: linear-gradient(to bottom, #ff7b31 0%,#ffb800 100%);
+        }
+        
+        .page-mis & {
+            background: linear-gradient(to bottom, #ffb800 0%,#ff7b31 100%);
+        }
+        
+        .page-ofo & {
+            background: linear-gradient(to bottom, #2864dc 0%,#00b27d 100%);
+        }
+    }
+
+    dl {
+        &:not(:last-of-type) {
+            margin-bottom: 90px;
+        }
+
+        p {
+            &:nth-of-type(1) {
+                @extend %fs-18;
+            }
+        }
+
+        dt {
+            margin-bottom: 24px;
+
+            p {
+                &:nth-of-type(2) {
+                    @extend %fs-32;
+                }
+                
+                .page-about & {
+                    @extend %fs-32;
+                }
+            }
+        }
+        
+        &.is-active {
+            dt {
+                .page-aoc & {
+                    color: $c-yellow;
+                }
+                
+                .page-mis & {
+                    color: $c-orange;
+                }
+
+                .page-about &,
+                .page-ofo & {
+                    color: $c-green;
+                }
+            }
+        }
+    }
+}
+

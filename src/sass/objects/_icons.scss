@@ -13,39 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
   }
 }
-.icon-arrow-down:before {
-  content: "\e90a";
+
+.icon-arrow--light:before {
+  content: "\e902";
 }
-.icon-automotive:before {
-  content: "\e907";
-}
-.icon-finances:before {
-  content: "\e908";
-}
-.icon-photography:before {
-  content: "\e909";
-}
-.icon-arrow-right:before {
-  content: "\e906";
-}
-.icon-quote:before {
-  content: "\e905";
-}
-.icon-facebook:before {
-  content: "\e903";
-}
-.icon-facebook-f:before {
-  content: "\e903";
-}
-.icon-twitter:before {
-  content: "\e904";
-}
-.icon-arrow-up:before {
+.icon-linkedin:before {
   content: "\e900";
 }
-.icon-lens:before {
+.icon-arrow:before {
   content: "\e901";
-}
-.icon-comment:before {
-  content: "\e902";
 }

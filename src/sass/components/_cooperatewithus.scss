@@ -1,0 +1,29 @@
+.c-cooperatewithus { 
+    @extend %rel; z-index: 15;
+
+    .o-wrap {
+        @extend %rel;
+    }
+
+    .page-aoc & {
+        @extend %theme--blue;
+    }
+
+    .page-ofo & {
+        @extend %theme--black;
+    }
+    
+    .page-mis & {
+        @extend %theme--yellow;
+    }
+    
+    .page-about & {
+        background-color: $c-gray;
+    }
+    
+    .o-smallbar {
+        @media ( max-width: $tablet + px ) {
+        	display: none;
+        }
+    }
+}

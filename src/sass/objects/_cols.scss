@@ -1,5 +1,15 @@
 .o-cols {
     @extend %flex;
 	width: 100%;
+	
+	&--2 {
+    	.o-cols {
+        	&__item {
+            	@media ( min-width: $smartphone + 1px ) {
+	            	width: 50%;	
+            	}
+            }
+    	}
+	}
 }
 

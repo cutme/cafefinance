@@ -1,0 +1,25 @@
+.c-textblock {
+    @extend %section;
+    @extend %rel; z-index: 10;
+    background-color: $c-gray;
+
+    article {
+        width: toRem(890);
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .page-about & {
+        &--01 {
+            p {
+                @extend %fs-32;
+            }
+        }
+            
+        &--02 {
+            p {
+                @extend %fs-80;
+            }            
+        }
+    }
+}
