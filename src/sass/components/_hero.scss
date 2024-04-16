@@ -1,6 +1,7 @@
 .c-hero {
     //height: calc(100vh - clamp(64px, toRem(98), toRem(98)));
     background-color: $c-gray;
+    min-height: 600px;
     //padding-top: calc(100vh - clamp(64px, toRem(98), toRem(98)));
     //overflow: hidden;
     
@@ -9,8 +10,14 @@
     }
 
     .o-logo {
-        @extend %abs;
-        left: toRem(48); top: 50px;
+        @media ( min-width: $tablet_portrait + 1px ) {
+        	position: absolute;
+            left: toRem(48); top: 50px;
+        }
+        
+        @media ( max-width: $tablet_portrait + px ) {
+            margin: 0 auto 24px auto;
+        }
     }
 
     .o-wrap {
@@ -21,6 +28,13 @@
         height: 100%;
         text-align: center;
 
+/*
+        @media ( max-width: $tablet_portrait + px ) {
+	        display: block;
+	        padding-top: 48px;
+        }
+*/
+        
         h1 {
             @extend %fs-80;
             @extend %rel;
@@ -28,6 +42,14 @@
             margin: {
                 left: auto;
                 right: auto;
+            }
+            
+            .page-home & {
+                @media ( max-width: $smartphone + px ) {
+                    display: flex;
+                    align-items: center;
+                	height: 200px;
+                }
             }
         }
         
@@ -78,15 +100,6 @@
             transform: translate3d(0, -50%, 0);
             width: toRem(838);
         }
-    }
-    
-    &__homesymbols {
-        @extend %abs;
-        @extend %flex;
-        @extend %flex-column; z-index: -1;
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        pointer-events: none;        
     }
     
     .o-ball {

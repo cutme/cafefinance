@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+//const CopyPlugin = require('copy-webpack-plugin');
 
 console.log(process.env.NODE_ENV);
 
@@ -83,6 +83,7 @@ module.exports = {
         createHappyPlugin('scss', ['css-loader?importLoaders:1!postcss-loader?sourceMap:1!sass-loader']),
         
         plugins.js,
+/*
         new CopyPlugin({
             patterns: [
             {
@@ -101,6 +102,7 @@ module.exports = {
             }
             ],
         }),
+*/
         
 
     ]),

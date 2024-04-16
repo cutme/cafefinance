@@ -1,13 +1,23 @@
 .o-scrolldown {
-    @extend %abs;
+    @extend %anim;
     @extend %flex;
-    @extend %flex-xy;
-    left: 50%; bottom: 40px;
+    @extend %flex-xy;    
     width: 60px; height: 60px;
-    transform: translate3d(-50%, 0, 0);
     border: 2px solid $c-gray;
     border-radius: 50%;
     margin: 0 auto;
+    flex-shrink: 0;
+    font-size: 18px;
+    
+    @media ( min-width: $tablet_portrait + 1px ) {
+        position: absolute;
+        left: 50%; bottom: 40px;
+        transform: translate3d(-50%, 0, 0);
+    }
+    
+    @media ( max-width: $tablet_portrait + px ) {
+    	margin-top: 24px;
+    }
     
     .page-mis & {
         border-color: $c-black;
@@ -16,5 +26,12 @@
     &:before {
         transform: rotate(90deg);
         font-size: 14px;
+    }
+    
+    &:hover {
+        @media ( hover: hover ) {
+        	height: 80px;
+        	border-radius: 30px;
+        }
     }
 }

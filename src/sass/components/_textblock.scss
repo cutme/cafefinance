@@ -1,12 +1,15 @@
 .c-textblock {
     @extend %section;
     @extend %rel; z-index: 10;
-    background-color: $c-gray;
+   // background-color: $c-gray;
 
     article {
-        width: toRem(890);
         margin: 0 auto;
         text-align: center;
+        
+        @media ( min-width: $tablet_portrait + 1px ) {
+	        width: toRem(890);
+        }
     }
 
     .page-about & {
@@ -17,6 +20,8 @@
         }
             
         &--02 {
+            background-color: $c-gray;
+
             p {
                 @extend %fs-80;
             }            

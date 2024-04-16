@@ -50,7 +50,7 @@
         }
 
         section {
-            padding: toRem(50);
+            padding: clamp(24px, toRem(50), toRem(50));
             
             h4 {
                 margin-bottom: 32px;

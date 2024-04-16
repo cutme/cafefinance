@@ -145,15 +145,16 @@
 
 %fs-40 {
     font-size: clamp(32px, toRem(40), toRem(40));
+    
+    @media ( max-width: $tablet_portrait + px ) {
+    	font-size: clamp(24px, toRem(32), toRem(32))
+    }
 }
 
 %fs-64 {
     font-size: clamp(32px, toRem(64), toRem(64));
 }
 
-%fs-80 {
-    font-size: clamp(48px, toRem(80), toRem(80));
-}
 
 %rel {
 	position: relative;
@@ -162,6 +163,10 @@
 
 %fs-80 {
     font-size: clamp(40px, toRem(80), toRem(80));
+    
+    @media ( max-width: $tablet_portrait + px ) {
+    	font-size: clamp(32px, toRem(40), toRem(40))
+    }
 }
 
 %section {

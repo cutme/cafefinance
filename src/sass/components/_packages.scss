@@ -8,9 +8,12 @@
 
     header {
         &.o-article {
-            width: grid(960);
-            margin: 0 auto toRem(120) auto;
+            margin: 0 auto clamp(60px, toRem(120), toRem(120)) auto;
             text-align: center;
+
+            @media ( min-width: $tablet_portrait + 1px ) {
+                width: grid(960);
+            }
         }
     }
     
@@ -36,7 +39,7 @@
 
             section {
                 border-radius: toRem(50);
-                padding: toRem(50);
+                padding: clamp(24px, toRem(50), toRem(50));
                 
                 @media ( min-width: $tablet_portrait + 1px ) {
                     width: calc(100% / 3 - 12px);
