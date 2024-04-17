@@ -129,4 +129,16 @@
             }
         }
     }
+    
+    &--01 {
+        .page-mis & {
+            article {
+                color: $c-black;
+                
+                @media ( min-width: $tablet_portrait + 1px ) {
+                	padding-top: 100px;
+                }
+            }
+        }
+    }
 }

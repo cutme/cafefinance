@@ -24,10 +24,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
             let target = e.currentTarget.dataset.target,
                 offset = e.currentTarget.dataset.offset;            
 
-            let url = location.protocol + "//" + document.domain + "/" + location.pathname.split('/')[1];
-          
-            document.getElementById(target.slice(1, target.length)) ? window.runScroll(target, offset) :
-                window.open(url + target, '_self');
+            //let url = location.protocol + "//" + document.domain + "/" + location.pathname.split('/')[1];          
+            document.querySelector(target) ? window.runScroll(target, offset) : window.open(e.currentTarget.href + target, '_self');
+            document.documentElement.classList.contains('menu-opened') ? window.hideMenu() : false;
         };
 
         for (let i = 0; i < gtt.length; i++) {

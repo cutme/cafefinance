@@ -27,13 +27,6 @@
         @extend %rel;
         height: 100%;
         text-align: center;
-
-/*
-        @media ( max-width: $tablet_portrait + px ) {
-	        display: block;
-	        padding-top: 48px;
-        }
-*/
         
         h1 {
             @extend %fs-80;
@@ -89,6 +82,7 @@
         @extend %theme--yellow;        
 
         .o-symbols {
+            width: toRem(249);
         }
     }
 

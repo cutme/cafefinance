@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     slidesPerView: 2,
                 },
                 769: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                 }
             },
             centeredSlidesBounds: true,

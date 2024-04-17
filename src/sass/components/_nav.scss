@@ -2,6 +2,7 @@
     @include z-index(nav);
     
     @media ( min-width: $menu + 1px ) {
+        flex: 1;
 	    margin: 0 0 0 auto;
     }
     
@@ -40,13 +41,23 @@
         & > ul {
             @extend %flex;
             
+            &:nth-of-type(1) {
+                @media ( min-width: $menu + 1px ) {
+                    flex: 1;
+                    padding-left: 40px;
+                }
+            }            
+            
             li {
-                padding: 0 toRem(20);
+                flex: 1;
+                
+                @media ( min-width: $menu + 1px ) {
+                    text-align: center;
+               // padding: 0 toRem(20);
+               }
                 
                 a {
                     @extend %rel;
-                    
-                    
                 }
 
                 &.font-bona {
