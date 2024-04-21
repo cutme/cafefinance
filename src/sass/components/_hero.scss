@@ -5,6 +5,16 @@
     //padding-top: calc(100vh - clamp(64px, toRem(98), toRem(98)));
     //overflow: hidden;
     
+    &--blog {
+        @extend %section;
+        min-height: 0;
+        margin-top: clamp(64px, toRem(98), toRem(98));
+        
+        h1 {
+            margin-bottom: 24px;
+        }
+    }
+
     &--home {
         overflow: hidden;
     }

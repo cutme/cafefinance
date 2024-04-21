@@ -1,0 +1,47 @@
+
+    <div class="c-blog">
+        <div class="c-blog__hero">
+            <img srcset="<%=require("./img/blog/01--single.webp")%> 1x, 
+                         <%=require("./img/blog/01--single@2x.webp")%> 2x" 
+                         alt="" loading="lazy" width="1440" height="450" 
+                         src=<%=require("./img/blog/01--single.webp")%> />
+        </div>
+
+        <div class="o-wrap">
+            <div class="c-blog__meta">
+                <div class="o-author">
+                    <p class="name">Rafał Jankowski</p>
+                    <p class="position">CEO</p>
+                </div>
+                <img srcset="<%=require("./img/blog/author.webp")%> 1x, 
+                             <%=require("./img/blog/author@2x.webp")%> 2x" 
+                             alt="" loading="lazy" width="214" height="214" 
+                             src=<%=require("./img/blog/author.webp")%> />
+            </div>
+
+            <article class="c-blog__article o-article">
+                <h1>Kontrola Otoczenia Finansowego</h1>
+                
+                <time>16 kwietnia 2024</time>
+                
+                <h5>Nasz zespół ekspertów monitoruje zmiany na rynku oraz przeprowadza regularne audyty finansowe, dostarczając aktualne informacje i pomoc w podejmowaniu trafnych decyzji finansowych.</h5>
+                
+                <p>We deal with analyzing accounting data, controlling and integrating business data, working as external CFO. 
+All to help our clients and partners make better decisions. Legal Services. We deal with legal services for entrepreneurs and individuals. We specialize in securing assets services and investments in mortgage debts cooperating with several law offices in Poland. Capital Market Investments. We invest in perspective companies, ETFs, REITs (listed mainly on the NY Stock Exchange, Singapor Exchange and Hong Kong Exchange), 
+rental houses, agricurtural land, arts, precious metals and other assets. FX speculation is no stranger for us as well. We also provide wealth consulting.</p>
+​
+<p>&nbsp;</p>
+
+<p>Funding & Investing. We invest in interesting business ventures. The industry or the country does not matter, 
+but the people conducting business activities are really most important. We run small Polish-Estonian Business Angel Syndicate.</p>
+            </article>
+
+            <div class="c-blog__related">
+                <div class="o-cols">
+                    <% include post--white %>
+                    <% include post--white %>
+                    <% include post--blue %>
+                </div>
+            </div>
+        </div>
+    </div>

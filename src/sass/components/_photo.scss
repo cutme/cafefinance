@@ -130,6 +130,12 @@
         }
     }
     
+    .page-about & {
+        img {
+            object-position: center;
+        }
+    }
+    
     &--01 {
         .page-mis & {
             article {

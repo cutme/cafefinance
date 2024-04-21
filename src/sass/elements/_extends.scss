@@ -195,11 +195,14 @@
         }
     }
     
+    &--white {
+        background-color: white;
+    }
+    
     &--yellow {
         background-color: $c-yellow;
     }
 }
-
 
 %wrap {
     width: $base + px;

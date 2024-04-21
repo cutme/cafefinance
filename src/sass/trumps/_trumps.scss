@@ -26,6 +26,10 @@
         @extend %theme--blue;
     }
     
+    &--white {
+        @extend %theme--white;
+    }
+    
     &--yellow {
         @extend %theme--yellow;
     }

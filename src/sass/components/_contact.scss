@@ -1,0 +1,35 @@
+.c-contact {
+    
+    background-color: $c-black;
+    padding: clamp(45px, toRem(90), toRem(90)) 0;
+    color: $c-gray;
+
+    .o-article {
+        max-width: 840px;
+        margin: 0 auto 50px auto;
+        text-align: center;
+        
+        p {
+            @extend %fs-32;
+        }
+    }
+    
+    form {
+        @extend %flex;
+        @extend %flex-column;
+        max-width: 614px;
+        margin: 0 auto;
+    }
+    
+    input {
+        margin-bottom: 20px;
+    }
+    
+    button {
+        @extend %btn;
+        @extend %btn--arrow;
+        border-color: $c-gray;
+        margin-top: 50px;
+        align-self: center;
+    }
+}

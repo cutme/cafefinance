@@ -56,29 +56,33 @@ input {
 	}
 }
 
-::-webkit-input-placeholder { color: #ccc; }
-:-moz-placeholder { color: #ccc; }
-::-moz-placeholder { color: #ccc; }
-:-ms-input-placeholder { color: #ccc; }
+::-webkit-input-placeholder { color: $c-gray; }
+:-moz-placeholder { color: $c-gray; }
+::-moz-placeholder { color: $c-gray; }
+:-ms-input-placeholder { color: $c-gray; }
 
 input {
     appearance: none;
 	text-rendering: optimizeLegibility; 	
     width: 100%;
-    height: 50px;
-    background-color: white;
-    padding: 0 20px;
     font: {
         family: $text;
         size: 18px;
     }
-    overflow: hidden;
-    text-overflow: ellipsis;
     
     &:invalid,
     &:-moz-submit-invalid,
     &:-moz-ui-invalid  {
-       box-shadow: none;
+    }
+    
+    &[type=text],
+    &[type=email],
+    &[type=tel] {
+        height: 54px;
+        background-color: black;
+        border-radius: 27px;
+        padding: 0 20px;
+        font-weight: $semibold;
     }
 }
 
@@ -89,134 +93,42 @@ textarea {
 }
 
 .form-row {
-   @extend %flex;
-   margin: 0 -10px;
+  
 }
 
 .form-group {
-    @extend %flex;
-    @extend %flex-wrap;
-   // flex: 1;
     margin-bottom: 20px;
-    padding: 0 10px;
 }
 
 label {
     cursor: pointer;
 }
 
-/*
 input[type=checkbox],
 input[type=radio] {
     display: none;
     
     & + label {
-        display: flex;
-        align-items: center;
+        @extend %rel;
+        display: block;
+        padding-left: 60px;
+        font-size: 16px;
         
-        @media ( max-width: + $smartphone_portrait + px ) {
-            align-items: flex-start;
-        }
-        
-        i {
-            @extend %flex-xy;
-            @extend %rel;
-            flex-shrink: 0;
-            display: inline-flex;
-            height: 30px;
-            width: 30px;
-            background-color: white;
-            border: 1px solid $c-gray-400;
-            font-size: rem(7);
-            color: var(--primary-color);
-            cursor: pointer;
-            
-            &:before {
-                @extend %abs;
-                @extend %flex;
-                @extend %flex-xy;
-                font-family: $icomoon;
-                left: 0; top: 0;
-                width: 100%; height: 100%;
-                font-size: rem(10);
-                opacity: 0;
-                transform: translateY(0,-3px,0);
-                //content: "\e90e";
-            }
-        }
-
-        span {
-            padding-left: 15px;
-            text-align: left;
-            
-            
+        &:before {
+            @extend %abs-pseudo;
+            left: 0; top: 0;
+            width: 20px; height: 20px;
+            border: 2px solid $c-gray;
+            border-radius: 50%;
         }
     }
     
     &:checked {
         & + label {
-            i {
-                &:before {
-                    opacity: 1;
-                    transform: translate3d(0,0,0);
-                }
+            &:before {
+                background-color: $c-green;
             }
         }
     }
 }
-
-input[type=checkbox] {
-
-    & + label {
-        
-        i {            
-            &.big {
-                width: 30px; height: 30px;
-                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.15);
-                border: none;
-                
-                &:before {
-                    font-size: rem(14);
-                }
-                
-                & + span {
-                    font-weight: $bold;
-                }
-            }
-        }
-    }
-}
-
-input[type=radio] {
-
-    & + label {
-        
-        i {            
-            &.big {
-                width: 40px; height: 40px;
-                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.3);
-                border: none;
-                border-radius: 50%;
-                
-                &:before {
-                    @extend %abs-xy;
-                    transform: translate3d(-50%, -50%, 0);
-                    content: ' ';
-                    width: 20px;
-                    height: 20px;
-                    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.05), 0 8px 16px rgba(0, 0, 0, 0.05);
-                    background-color: var(--primary-color);
-                    border-radius: 50%;
-                }
-                
-                & + span {
-                    font-size: rem(24);
-                    font-weight: $bold;
-                }
-            }
-        }
-    }
-}
-*/
-
 
